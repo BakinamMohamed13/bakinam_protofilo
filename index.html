@@ -727,7 +727,7 @@
             font-size: 0.9rem;
         }
 
-        /* أنماط نافذة الفيديو */
+        /* Video Modal */
         .video-modal {
             display: none;
             position: fixed;
@@ -772,7 +772,7 @@
             color: var(--primary);
         }
 
-        /* أنماط نافذة الشهادة */
+        /* Certificate Modal */
         .certificate-modal {
             display: none;
             position: fixed;
@@ -1124,10 +1124,24 @@ Welcome to my portfolio!</p>
                         <p>Finished a comprehensive 54-hour Flutter and Dart development course in Arabic, establishing a strong foundation in mobile app development.</p>
                     </div>
                 </div>
+
+                <!-- NEW CERTIFICATE: Research Forum Participation -->
+                <div class="certificate-card">
+                    <div class="certificate-image">
+                        <img src="images\WhatsApp Image 2025-09-10 at 10.38.11 PM.jpeg" alt="Research Forum Certificate">
+                        <div class="certificate-overlay">
+                            <button class="certificate-view-btn" data-certificate="research">View Certificate</button>
+                            <button class="certificate-download-btn" data-certificate="research">Download</button>
+                        </div>
+                    </div>
+                    <div class="certificate-content">
+                        <h3>Undergraduate Research Forum</h3>
+                        <p class="certificate-date">August 20, 2025</p>
+                        <p>Received this certificate for participation in the 20th Undergraduate Research Forum and 1st International Junior Researcher Competition at Nile University, Egypt.</p>
+                    </div>
+                </div>
             </div>
         </div>
-
-
     </section>
 
     <!-- Skills Section -->
@@ -1232,7 +1246,7 @@ Welcome to my portfolio!</p>
                         <span class="project-tag">ML</span>
                     </div>
                     <div class="project-links">
-                                                <a href="#" class="project-link demo-btn" data-video="https://drive.google.com/file/d/1m4AbILkoBWp8jqIljQkrI2kGFsM2KMjt/view?usp=drive_link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        <a href="#" class="project-link demo-btn" data-video="https://drive.google.com/file/d/1m4AbILkoBWp8jqIljQkrI2kGFsM2KMjt/view?usp=drive_link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
                     </div>
                 </div>
             </div>
@@ -1274,9 +1288,48 @@ Welcome to my portfolio!</p>
                     </div>
                 </div>
             </div>
+
+            <!-- NEW PROJECT: Calculator App -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="images\WhatsApp Image 2025-09-10 at 10.38.10 PM.jpeg" alt="Calculator App" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="project-content">
+                    <h3>Calculator App</h3>
+                    <p>A fully functional calculator application with a clean UI, supporting basic arithmetic operations, percentage calculations, and memory functions. Built with Flutter for a smooth user experience.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Flutter</span>
+                        <span class="project-tag">Dart</span>
+                        <span class="project-tag">UI</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link demo-btn" data-video="https://drive.google.com/file/d/1wq_eqJudGi9eAD3zWEn79j_3NJykDtec/view?usp=sharing"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NEW PROJECT: Chat Bot App -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="images\WhatsApp Image 2025-09-10 at 10.38.10 PM (1).jpeg" alt="Chat Bot App" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="project-content">
+                    <h3>Health Chat Bot</h3>
+                    <p>An AI-powered chat application that provides information about health conditions like anemia. Features natural language processing, user-friendly interface, and informative responses to medical queries.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Flutter</span>
+                        <span class="project-tag">API Key</span>
+                        <span class="project-tag">Dart</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link demo-btn" data-video="https://drive.google.com/file/d/1GSuLFuM3Vs5vdwoNW6M4R7rE1EqR-b4A/view?usp=sharing"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
+
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
@@ -1346,7 +1399,7 @@ Welcome to my portfolio!</p>
         </div>
     </footer>
 
-    <!-- نافذة الفيديو -->
+    <!-- Video Modal -->
     <div class="video-modal" id="videoModal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
@@ -1354,7 +1407,7 @@ Welcome to my portfolio!</p>
         </div>
     </div>
 
-    <!-- نافذة الشهادة -->
+    <!-- Certificate Modal -->
     <div class="certificate-modal" id="certificateModal">
         <div class="cert-modal-content">
             <span class="cert-close-modal">&times;</span>
@@ -1420,7 +1473,7 @@ Welcome to my portfolio!</p>
             contactForm.reset();
         });
 
-        // إدارة نافذة الفيديو
+        // Video Modal Management
         const videoModal = document.getElementById('videoModal');
         const videoFrame = document.getElementById('videoFrame');
         const closeModal = document.querySelector('.close-modal');
@@ -1450,30 +1503,49 @@ Welcome to my portfolio!</p>
             }
         });
 
-        // إدارة نافذة الشهادة
+        // Certificate Modal Management
         const certificateModal = document.getElementById('certificateModal');
         const certificateImage = document.getElementById('certificateImage');
         const certCloseModal = document.querySelector('.cert-close-modal');
         const viewButtons = document.querySelectorAll('.certificate-view-btn');
         const downloadButtons = document.querySelectorAll('.certificate-download-btn');
 
-        // روابط صور الشهادات الحقيقية (يجب استبدالها بالروابط الفعلية)
+        // Certificate Images
         const certificateImages = {
-            'icpc': 'https://via.placeholder.com/800x600/8A2BE2/FFFFFF?text=ICPC+Certificate+Image',
-            'flutter': 'https://via.placeholder.com/800x600/6A0DAD/FFFFFF?text=Flutter+Masterclass+Certificate',
-            'ccna': 'https://via.placeholder.com/800x600/4B0082/FFFFFF?text=CCNA+Networking+Certificate',
-            'iti': 'https://via.placeholder.com/800x600/6A0DAD/FFFFFF?text=ITI+Flutter+Course+Certificate',
-            'complete': 'https://via.placeholder.com/800x600/8A2BE2/FFFFFF?text=Complete+Flutter+Course+Certificate'
+            'icpc': 'images/WhatsApp Image 2025-09-10 at 9.15.17 PM.jpeg',
+            'flutter': 'images/WhatsApp Image 2025-09-10 at 9.14.49 PM.jpeg',
+            'ccna': 'images/WhatsApp Image 2025-09-10 at 9.13.59 PM.jpeg',
+            'iti': 'images/WhatsApp Image 2025-09-10 at 9.11.46 PM (1).jpeg',
+            'complete': 'images/WhatsApp Image 2025-09-10 at 9.11.46 PM.jpeg',
+            'research': 'images/WhatsApp Image 2025-09-10 at 10.38.11 PM.jpeg'
         };
 
-        // روابط تحميل الشهادات (يجب استبدالها بالروابط الفعلية)
-        const certificateDownloads = {
-            'icpc': 'https://via.placeholder.com/800x600/8A2BE2/FFFFFF?text=ICPC+Certificate+Download',
-            'flutter': 'https://via.placeholder.com/800x600/6A0DAD/FFFFFF?text=Flutter+Masterclass+Certificate+Download',
-            'ccna': 'https://via.placeholder.com/800x600/4B0082/FFFFFF?text=CCNA+Networking+Certificate+Download',
-            'iti': 'https://via.placeholder.com/800x600/6A0DAD/FFFFFF?text=ITI+Flutter+Course+Certificate+Download',
-            'complete': 'https://via.placeholder.com/800x600/8A2BE2/FFFFFF?text=Complete+Flutter+Course+Certificate+Download'
-        };
+        // Function to download image
+        function downloadImage(imageUrl, filename) {
+            fetch(imageUrl)
+                .then(response => response.blob())
+                .then(blob => {
+                    const blobUrl = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.style.display = 'none';
+                    a.href = blobUrl;
+                    a.download = filename;
+                    document.body.appendChild(a);
+                    a.click();
+                    window.URL.revokeObjectURL(blobUrl);
+                    document.body.removeChild(a);
+                })
+                .catch(() => {
+                    // Fallback method if fetch fails
+                    const a = document.createElement('a');
+                    a.style.display = 'none';
+                    a.href = imageUrl;
+                    a.download = filename;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                });
+        }
 
         viewButtons.forEach(button => {
             button.addEventListener('click', () => {
@@ -1487,15 +1559,10 @@ Welcome to my portfolio!</p>
         downloadButtons.forEach(button => {
             button.addEventListener('click', () => {
                 const certificateType = button.getAttribute('data-certificate');
-                const downloadLink = certificateDownloads[certificateType];
+                const imageUrl = certificateImages[certificateType];
+                const filename = `${certificateType}-certificate.jpg`;
                 
-                // إنشاء عنصر <a> خفي للتحميل
-                const a = document.createElement('a');
-                a.href = downloadLink;
-                a.download = `${certificateType}-certificate.jpg`;
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
+                downloadImage(imageUrl, filename);
             });
         });
 
@@ -1511,7 +1578,7 @@ Welcome to my portfolio!</p>
             }
         });
 
-        // تحديث القائمة لإضافة قسم الشهادات
+        // Close menu when clicking on links
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 if (navLinks.classList.contains('active')) {
