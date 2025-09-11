@@ -323,6 +323,175 @@
             margin-bottom: 15px;
         }
 
+        /* Services Section */
+        .services {
+            background-color: var(--gray);
+            color: var(--dark);
+        }
+
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--light);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            transform: translateY(50px);
+            text-align: center;
+        }
+
+        .service-card.animated {
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .service-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .service-card:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(138, 43, 226, 0.2);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            color: var(--light);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+
+        .service-card p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .service-features {
+            list-style: none;
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .service-features li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #555;
+        }
+
+        .service-features li i {
+            color: var(--primary);
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background-color: var(--dark);
+            color: var(--light);
+        }
+
+        .testimonials-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            transform: translateY(50px);
+            position: relative;
+        }
+
+        .testimonial-card.animated {
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .testimonial-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .testimonial-card:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(138, 43, 226, 0.2);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: #ccc;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .testimonial-text::before {
+            content: """;
+            position: absolute;
+            left: 0;
+            top: -15px;
+            font-size: 3rem;
+            color: var(--primary);
+            font-family: Arial, sans-serif;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--light);
+            font-weight: bold;
+        }
+
+        .author-info h4 {
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
         /* Certificates Section - New Section */
         .certificates {
             background-color: var(--dark);
@@ -987,9 +1156,11 @@
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
                 <li><a href="#certificates">Certificates</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -1038,7 +1209,65 @@ Welcome to my portfolio!</p>
         </div>
     </section>
 
-    <!-- Certificates Section - New Section -->
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Services</h2>
+            </div>
+            <div class="services-container">
+                <!-- Flutter Development Service -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Flutter App Development</h3>
+                    <p>Creating beautiful, high-performance cross-platform mobile applications using Flutter framework.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Cross-platform iOS & Android apps</li>
+                        <li><i class="fas fa-check"></i> Custom UI/UX design</li>
+                        <li><i class="fas fa-check"></i> Firebase integration</li>
+                        <li><i class="fas fa-check"></i> API integration</li>
+                        <li><i class="fas fa-check"></i> App publishing assistance</li>
+                    </ul>
+                </div>
+
+                <!-- Pentesting Service -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Web Application Pentesting</h3>
+                    <p>Comprehensive security assessment of web applications to identify and fix vulnerabilities.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Vulnerability assessment</li>
+                        <li><i class="fas fa-check"></i> OWASP Top 10 testing</li>
+                        <li><i class="fas fa-check"></i> Security audit reports</li>
+                        <li><i class="fas fa-check"></i> Remediation guidance</li>
+                        <li><i class="fas fa-check"></i> Post-fix verification</li>
+                    </ul>
+                </div>
+
+                <!-- Consultation Service -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Development Consultation</h3>
+                    <p>Expert guidance on Flutter development best practices and secure coding techniques.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Architecture planning</li>
+                        <li><i class="fas fa-check"></i> Code review</li>
+                        <li><i class="fas fa-check"></i> Performance optimization</li>
+                        <li><i class="fas fa-check"></i> Security best practices</li>
+                        <li><i class="fas fa-check"></i> Team training</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
     <section id="certificates" class="certificates">
         <div class="container">
             <div class="section-title">
@@ -1318,8 +1547,8 @@ Welcome to my portfolio!</p>
                     <p>An AI-powered chat application that provides information about health conditions like anemia. Features natural language processing, user-friendly interface, and informative responses to medical queries.</p>
                     <div class="project-tags">
                         <span class="project-tag">Flutter</span>
-                        <span class="project-tag">API Key</span>
-                        <span class="project-tag">Dart</span>
+                        <span class="project-tag">AI</span>
+                        <span class="project-tag">Health</span>
                     </div>
                     <div class="project-links">
                         <a href="#" class="project-link demo-btn" data-video="https://drive.google.com/file/d/1GSuLFuM3Vs5vdwoNW6M4R7rE1EqR-b4A/view?usp=sharing"><i class="fas fa-external-link-alt"></i> Live Demo</a>
@@ -1329,6 +1558,49 @@ Welcome to my portfolio!</p>
         </div>
     </div>
 </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Client Testimonials</h2>
+            </div>
+            <div class="testimonials-container">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Bakinam developed a flawless Flutter application for our healthcare startup. His attention to detail and understanding of  best practices resulted in an app that  looks great UI/UX.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AM</div>
+                        <div class="author-info">
+                            <h4>Ahmed Mohamed</h4>
+                            <p>CEO, HealthTech Solutions</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <p class="testimonial-text">The penetration testing service provided by Bakinam helped us identify critical vulnerabilities in our web application.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">NS</div>
+                        <div class="author-info">
+                            <h4>Nora Salah</h4>
+                            <p>CTO, E-Commerce Platform</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Working with Bakinam on our Flutter project was a great experience. He delivered ahead of schedule and implemented complex features with elegant solutions. Would definitely hire again for future projects.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">KA</div>
+                        <div class="author-info">
+                            <h4>Khaled Ali</h4>
+                            <p>Product Manager, FinTech Startup</p>
+                        </div>
+                    </div>
+                </div>    </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
@@ -1439,7 +1711,7 @@ Welcome to my portfolio!</p>
 
         // Animate Elements on Scroll
         const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.skill-category, .project-card, .about-image, .about-text, .contact-info, .contact-form, .certificate-card');
+            const elements = document.querySelectorAll('.skill-category, .project-card, .about-image, .about-text, .contact-info, .contact-form, .certificate-card, .service-card, .testimonial-card');
             
             elements.forEach(element => {
                 const elementPosition = element.getBoundingClientRect().top;
