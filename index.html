@@ -1235,6 +1235,62 @@
             color: var(--primary);
         }
 
+        /* CV Modal */
+        .cv-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cv-modal.active {
+            display: flex;
+        }
+
+        .cv-modal-content {
+            width: 90%;
+            max-width: 800px;
+            height: 90vh;
+            position: relative;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .cv-modal-content iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .cv-close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            color: var(--dark);
+            font-size: 2rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .cv-close-modal:hover {
+            color: var(--primary);
+        }
+
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -1474,6 +1530,7 @@
                 <div class="hero-btns">
                     <a href="#projects" class="btn btn-primary">View My Work</a>
                     <a href="#contact" class="btn btn-outline">Contact Me</a>
+                    <a href="#" class="btn btn-outline cv-btn">View My CV</a>
                 </div>
             </div>
         </div>
@@ -2063,6 +2120,14 @@
         </div>
     </div>
 
+    <!-- CV Modal -->
+    <div class="cv-modal" id="cvModal">
+        <div class="cv-modal-content">
+            <span class="cv-close-modal">&times;</span>
+            <iframe id="cvFrame" src="" frameborder="0"></iframe>
+        </div>
+    </div>
+
     <script>
         // Menu Toggle
         const menuBtn = document.querySelector('.menu-btn');
@@ -2222,6 +2287,39 @@
         certificateModal.addEventListener('click', (e) => {
             if (e.target === certificateModal) {
                 certificateModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // CV Modal Management
+        const cvModal = document.getElementById('cvModal');
+        const cvFrame = document.getElementById('cvFrame');
+        const cvCloseModal = document.querySelector('.cv-close-modal');
+        const cvButtons = document.querySelectorAll('.cv-btn');
+        
+        // Replace this URL with your Google Drive CV PDF link
+        // Make sure to use the direct link format: https://drive.google.com/file/d/YOUR_FILE_ID/preview
+        const cvPdfUrl = 'https://drive.google.com/file/d/13a7agi7aoHkw_JICrqzLSYKEugMswq-7/view?usp=sharing';
+
+        cvButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                cvFrame.src = cvPdfUrl;
+                cvModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        cvCloseModal.addEventListener('click', () => {
+            cvModal.classList.remove('active');
+            cvFrame.src = '';
+            document.body.style.overflow = 'auto';
+        });
+
+        cvModal.addEventListener('click', (e) => {
+            if (e.target === cvModal) {
+                cvModal.classList.remove('active');
+                cvFrame.src = '';
                 document.body.style.overflow = 'auto';
             }
         });
