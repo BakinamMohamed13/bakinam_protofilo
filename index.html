@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -750,6 +751,97 @@
             margin-bottom: 10px;
         }
 
+        /* Research Papers Section */
+        .research-papers {
+            background-color: var(--gray);
+            color: var(--dark);
+        }
+
+        .research-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+        }
+
+        .research-card {
+            background-color: var(--light);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            transform: translateY(50px);
+            display: flex;
+        }
+
+        .research-card.animated {
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .research-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .research-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(138, 43, 226, 0.2);
+        }
+
+        .research-image {
+            width: 40%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .research-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .research-card:hover .research-image img {
+            transform: scale(1.05);
+        }
+
+        .research-content {
+            width: 60%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .research-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary-dark);
+        }
+
+        .research-content p {
+            margin-bottom: 15px;
+            color: #555;
+            flex-grow: 1;
+        }
+
+        .research-link {
+            background-color: var(--primary);
+            color: var(--light);
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .research-link:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(138, 43, 226, 0.3);
+        }
+
         /* Skills Section */
         .skills {
             background-color: var(--dark);
@@ -1373,6 +1465,23 @@
             .thankyou h2 {
                 font-size: 3rem;
             }
+            
+            .research-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .research-card {
+                flex-direction: column;
+            }
+            
+            .research-image {
+                width: 100%;
+                height: 200px;
+            }
+            
+            .research-content {
+                width: 100%;
+            }
         }
 
         @media (max-width: 768px) {
@@ -1393,7 +1502,7 @@
                 transition: all 0.5s ease;
             }
             
-            .nav-links.active {
+            .nav-links active {
                 left: 0;
             }
             
@@ -1495,6 +1604,10 @@
             .thankyou p {
                 font-size: 1rem;
             }
+            
+            .research-container {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -1515,6 +1628,7 @@
                 <li><a href="#services">Services</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#certificates">Certificates</a></li>
+                <li><a href="#research">Research</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -1975,6 +2089,40 @@
         </div>
     </section>
 
+    <!-- Research Papers Section -->
+    <section id="research" class="research-papers">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Research Papers</h2>
+            </div>
+            <div class="research-container">
+                <!-- Research Paper 1 -->
+                <div class="research-card">
+                    <div class="research-image">
+                        <img src="images\Screenshot_15-9-2025_233147_.jpeg" alt="Research Paper 1">
+                    </div>
+                    <div class="research-content">
+                        <h3>Anemia Detection Using Machine Learning</h3>
+                        <p>This research paper explores the application of machine learning algorithms for non-invasive anemia detection through image analysis of nails, palms, and eyes. The study demonstrates promising results with moderate accuracy, offering a potential solution for early anemia screening in resource-limited settings.</p>
+                        <a href="https://drive.google.com/file/d/1SIG4NtdI-UclBr0CLCJzkuzFWAEvU_h7/view?usp=sharing" class="research-link" target="_blank">View Research Paper</a>
+                    </div>
+                </div>
+
+                <!-- Research Paper 2 -->
+                <div class="research-card">
+                    <div class="research-image">
+                        <img src="images\Screenshot_15-9-2025_233044_.jpeg" alt="Research Paper 2">
+                    </div>
+                    <div class="research-content">
+                        <h3>Mobile Application Security: Flutter Best Practices</h3>
+                        <p>This paper examines security vulnerabilities in mobile applications developed with Flutter and proposes a set of best practices for secure development. The research includes case studies of common security flaws and provides actionable recommendations for developers to enhance application security.</p>
+                        <a href="https://drive.google.com/file/d/1dzsuQ6FbkHYy5P-gntX5l1wunHM5c5CT/view?usp=sharing" class="research-link" target="_blank">View Research Paper</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials">
         <div class="container">
@@ -2053,18 +2201,22 @@
                     </ul>
                 </div>
                 <div class="contact-form">
-                    <form id="contactForm">
+                    <form id="contactForm" action="https://formsubmit.co/beka.mouhammed135@gmail.com" method="POST">
+                        <input type="hidden" name="_subject" value="New contact form submission from Portfolio">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html">
+                        
                         <div class="form-group">
-                            <input type="text" class="form-input" placeholder="Your Name" required>
+                            <input type="text" class="form-input" name="name" placeholder="Your Name" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-input" placeholder="Your Email" required>
+                            <input type="email" class="form-input" name="email" placeholder="Your Email" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-input" placeholder="Subject">
+                            <input type="text" class="form-input" name="subject" placeholder="Subject">
                         </div>
                         <div class="form-group">
-                            <textarea class="form-input" placeholder="Your Message" required></textarea>
+                            <textarea class="form-input" name="message" placeholder="Your Message" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Send Message</button>
                     </form>
@@ -2152,7 +2304,7 @@
 
         // Animate Elements on Scroll
         const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.skill-category, .project-card, .about-image, .about-text, .contact-info, .contact-form, .certificate-card, .service-card, .testimonial-card, .education-item, .experience-item');
+            const elements = document.querySelectorAll('.skill-category, .project-card, .about-image, .about-text, .contact-info, .contact-form, .certificate-card, .service-card, .testimonial-card, .education-item, .experience-item, .research-card');
             
             elements.forEach(element => {
                 const elementPosition = element.getBoundingClientRect().top;
@@ -2181,9 +2333,12 @@
         const contactForm = document.getElementById('contactForm');
         
         contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thank you for your message! I will get back to you soon.');
-            contactForm.reset();
+            // FormSubmit will handle the submission
+            // We'll just show a confirmation message
+            setTimeout(() => {
+                alert('Thank you for your message! I will get back to you soon.');
+                contactForm.reset();
+            }, 1000);
         });
 
         // Video Modal Management
